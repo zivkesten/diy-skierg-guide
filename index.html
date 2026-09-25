@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>סקי־ארג ביתי בפחות מ־€200 | מדריך הבנייה המלא</title>
+<meta name="description" content="מדריך בנייה מלא למכשיר סקי־ארג ביתי ממכשיר חתירה יד שנייה - בלי ריתוך, בלי הלחמה, רק מקדחה ומברג. חלקים אמיתיים עם לינקים ומחירים נבדקים בהולנד.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a1120; --bg2:#0e1830; --card:#131f3a; --card2:#182747;
+  --line:rgba(140,170,255,.14); --line2:rgba(140,170,255,.25);
+  --txt:#eaf0ff; --txt2:#a8b6d8; --txt3:#6b7ca3;
+  --acc:#4ade80; --acc2:#22d3ee; --acc3:#818cf8;
+  --warn:#fbbf24; --bad:#f87171;
+  --grad:linear-gradient(135deg,#22d3ee,#4ade80);
+  --r:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Heebo',system-ui,sans-serif;
+  background:var(--bg); color:var(--txt);
+  overflow-x:hidden; line-height:1.65;
+}
+::selection{background:rgba(74,222,128,.3)}
+/* ---------- background ---------- */
+.snow{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.snow i{position:absolute;top:-12px;border-radius:50%;background:rgba(220,235,255,.5);animation:fall linear infinite}
+@keyframes fall{to{transform:translateY(110vh)}}
+.glow{position:fixed;border-radius:50%;filter:blur(120px);opacity:.16;pointer-events:none;z-index:0}
+.glow.a{width:520px;height:520px;background:#22d3ee;top:-160px;right:-120px}
+.glow.b{width:460px;height:460px;background:#4ade80;bottom:-140px;left:-120px}
+/* ---------- layout ---------- */
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
+section{padding:64px 0}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;font-weight:600;letter-spacing:.06em;color:var(--acc2);background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.25);padding:5px 14px;border-radius:99px;margin-bottom:16px}
+h1{font-size:clamp(2rem,5.4vw,3.4rem);font-weight:900;line-height:1.18;letter-spacing:-.01em}
+h2{font-size:clamp(1.5rem,3.6vw,2.2rem);font-weight:800;margin-bottom:14px;line-height:1.25}
+h3{font-size:1.15rem;font-weight:700;margin-bottom:8px}
+.sub{color:var(--txt2);font-size:1.05rem;max-width:640px}
+/* ---------- nav ---------- */
+nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,17,32,.82);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:6px;padding-top:10px;padding-bottom:10px;overflow-x:auto;scrollbar-width:none}
+nav .wrap::-webkit-scrollbar{display:none}
+nav .logo{font-weight:900;font-size:1.02rem;white-space:nowrap;margin-left:10px;display:flex;align-items:center;gap:8px}
+nav .logo b{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+nav a.nl{color:var(--txt2);text-decoration:none;font-size:.88rem;font-weight:500;padding:7px 13px;border-radius:99px;white-space:nowrap;transition:all .25s}
+nav a.nl:hover{color:var(--txt);background:rgba(140,170,255,.1)}
+nav a.nl.on{color:#08131f;background:var(--grad);font-weight:700}
+/* ---------- hero ---------- */
+.hero{padding:56px 0 40px;display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+.hero .tag{display:inline-block;font-size:.8rem;font-weight:700;color:var(--warn);background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.3);padding:4px 12px;border-radius:99px;margin-bottom:18px}
+.hero p.lead{color:var(--txt2);font-size:1.1rem;margin:18px 0 26px;max-width:520px}
+.hero p.lead b{color:var(--txt)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:26px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 10px;text-align:center;transition:transform .3s,border-color .3s}
+.stat:hover{transform:translateY(-4px);border-color:var(--line2)}
+.stat .v{font-size:1.35rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat .l{font-size:.72rem;color:var(--txt3);margin-top:2px;font-weight:500}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 26px;border-radius:14px;text-decoration:none;transition:transform .2s,box-shadow .2s;cursor:pointer;border:none;font-family:inherit}
+.btn.p{background:var(--grad);color:#08131f;box-shadow:0 8px 30px rgba(34,211,238,.25)}
+.btn.p:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(74,222,128,.35)}
+.btn.s{background:transparent;color:var(--txt);border:1px solid var(--line2)}
+.btn.s:hover{background:rgba(140,170,255,.08)}
+/* hero machine animation */
+.stage{position:relative;background:radial-gradient(ellipse at 50% 20%,rgba(34,211,238,.08),transparent 65%),var(--bg2);border:1px solid var(--line);border-radius:24px;padding:26px 16px 10px;overflow:hidden}
+.stage .cap{position:absolute;top:14px;right:18px;font-size:.72rem;color:var(--txt3);font-weight:500}
+svg text{font-family:'Heebo',sans-serif}
+.handles{animation:pull 2.6s ease-in-out infinite}
+.handles.two{animation-delay:1.3s}
+@keyframes pull{0%,100%{transform:translateY(0)}45%{transform:translateY(46px)}60%{transform:translateY(46px)}}
+.rope-l{stroke-dasharray:220;stroke-dashoffset:0}
+.wheel{animation:spin 2.6s ease-in-out infinite;transform-origin:center;transform-box:fill-box}
+@keyframes spin{0%,100%{transform:rotate(0)}45%{transform:rotate(140deg)}60%{transform:rotate(140deg)}}
+/* ---------- cards / grids ---------- */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px;transition:transform .3s,border-color .3s,box-shadow .3s}
+.card:hover{transform:translateY(-3px);border-color:var(--line2);box-shadow:0 16px 40px rgba(0,0,0,.3)}
+.card .ico{font-size:1.6rem;margin-bottom:10px;display:block}
+.card p{color:var(--txt2);font-size:.92rem}
+.price-big{font-size:2.4rem;font-weight:900}
+.win{color:var(--acc)} .lose{color:var(--bad)}
+/* reveal on scroll */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+/* ---------- compare table ---------- */
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px}
+.vs .card h3{display:flex;align-items:center;gap:10px}
+.vs ul{list-style:none;margin-top:12px}
+.vs li{padding:8px 0;border-bottom:1px dashed var(--line);color:var(--txt2);font-size:.93rem;display:flex;gap:10px}
+.vs li:last-child{border:none}
+.vs li::before{content:"•";color:var(--acc2);font-weight:900}
+/* ---------- tabs (alternatives) ---------- */
+.tabs{display:flex;gap:8px;margin:22px 0 18px;flex-wrap:wrap}
+.tab{padding:10px 20px;border-radius:12px;border:1px solid var(--line2);background:transparent;color:var(--txt2);font-family:inherit;font-size:.9rem;font-weight:600;cursor:pointer;transition:all .25s}
+.tab.on{background:var(--grad);color:#08131f;border-color:transparent;font-weight:800}
+.tabpanel{display:none;animation:fadeUp .45s}
+.tabpanel.on{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.verdict-chip{display:inline-block;font-size:.75rem;font-weight:800;padding:3px 12px;border-radius:99px;margin-right:8px;vertical-align:middle}
+.vc-y{background:rgba(74,222,128,.15);color:var(--acc);border:1px solid rgba(74,222,128,.4)}
+.vc-n{background:rgba(248,113,113,.12);color:var(--bad);border:1px solid rgba(248,113,113,.35)}
+/* ---------- exploded ---------- */
+.exploded-wrap{background:var(--bg2);border:1px solid var(--line);border-radius:24px;padding:26px;margin-top:26px}
+.exploded-ctl{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:8px}
+.switch{display:flex;align-items:center;gap:10px;font-size:.9rem;color:var(--txt2);font-weight:600}
+.exploded-svg .part{transition:transform 1s cubic-bezier(.3,.8,.3,1),opacity .8s}
+/* ---------- parts checklist ---------- */
+.parts-top{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:22px}
+.totalbox{background:var(--card2);border:1px solid rgba(74,222,128,.3);border-radius:18px;padding:18px 26px;text-align:center;min-width:220px}
+.totalbox .t{font-size:2rem;font-weight:900;color:var(--acc)}
+.totalbox .l{font-size:.75rem;color:var(--txt3)}
+.part{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin-bottom:10px;transition:all .3s;cursor:pointer}
+.part:hover{border-color:var(--line2)}
+.part.done{opacity:.55}
+.part.done .pname{text-decoration:line-through}
+.pcheck{width:26px;height:26px;border-radius:8px;border:2px solid var(--line2);display:grid;place-items:center;font-size:.9rem;color:transparent;transition:all .25s;flex-shrink:0}
+.part.done .pcheck{background:var(--acc);border-color:var(--acc);color:#08131f}
+.pname{font-weight:700;font-size:.98rem}
+.pdesc{font-size:.84rem;color:var(--txt2);margin-top:2px}
+.plinks{margin-top:6px;display:flex;gap:8px;flex-wrap:wrap}
+.plink{font-size:.75rem;font-weight:600;color:var(--acc2);text-decoration:none;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.25);padding:3px 10px;border-radius:99px;transition:all .2s}
+.plink:hover{background:rgba(34,211,238,.18)}
+.plink.alt{color:var(--txt3);border-color:var(--line);background:transparent}
+.pprice{font-weight:800;font-size:1.05rem;color:var(--acc);white-space:nowrap;text-align:left}
+.pprice small{display:block;font-size:.68rem;color:var(--txt3);font-weight:500}
+.note-chip{font-size:.72rem;color:var(--warn);background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.25);padding:2px 9px;border-radius:99px;font-weight:600}
+/* ---------- steps ---------- */
+.steps-nav{display:flex;gap:8px;margin:24px 0;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}
+.steps-nav::-webkit-scrollbar{display:none}
+.snav{min-width:44px;height:44px;border-radius:12px;border:1px solid var(--line2);background:var(--card);color:var(--txt2);font-family:inherit;font-weight:700;font-size:.9rem;cursor:pointer;transition:all .25s;display:grid;place-items:center;padding:0 14px;white-space:nowrap}
+.snav.on{background:var(--grad);color:#08131f;border-color:transparent;transform:scale(1.08)}
+.snav.did{border-color:var(--acc);color:var(--acc)}
+.step-card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:30px;display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;animation:fadeUp .4s}
+.step-meta{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 18px}
+.chip{font-size:.75rem;font-weight:700;padding:5px 13px;border-radius:99px;background:var(--card2);border:1px solid var(--line2);color:var(--txt2)}
+.chip b{color:var(--acc2)}
+.step-card ol{margin:14px 0 0;padding-right:20px;color:var(--txt2);font-size:.95rem}
+.step-card ol li{margin-bottom:10px}
+.step-card ol li b{color:var(--txt)}
+.warnbox{background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.3);border-radius:14px;padding:14px 18px;margin-top:16px;font-size:.86rem;color:#fde9b8}
+.warnbox b{color:var(--warn)}
+.step-ctl{display:flex;justify-content:space-between;margin-top:22px;gap:12px}
+.diagram{background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:14px;min-height:220px;display:grid;place-items:center}
+/* ---------- videos ---------- */
+.vid{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);aspect-ratio:16/9;background:#000}
+.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vidcap{font-size:.85rem;color:var(--txt2);margin-top:10px}
+/* ---------- verdict ---------- */
+.vtable{width:100%;border-collapse:collapse;margin-top:20px;font-size:.92rem}
+.vtable th,.vtable td{padding:13px 14px;text-align:right;border-bottom:1px solid var(--line)}
+.vtable th{color:var(--txt3);font-weight:600;font-size:.8rem}
+.vtable td:first-child{color:var(--txt2);font-weight:600}
+.safety{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.safety .card{border-color:rgba(251,191,36,.25)}
+/* ---------- sources ---------- */
+.src{display:flex;gap:14px;padding:14px 0;border-bottom:1px dashed var(--line);align-items:baseline}
+.src:last-child{border:none}
+.src .n{color:var(--acc2);font-weight:800;min-width:26px}
+.src a{color:var(--acc2);text-decoration:none;font-weight:600;word-break:break-all}
+.src a:hover{text-decoration:underline}
+.src span{color:var(--txt3);font-size:.84rem;display:block}
+footer{border-top:1px solid var(--line);padding:34px 0 46px;color:var(--txt3);font-size:.84rem;text-align:center}
+/* ---------- responsive ---------- */
+@media(max-width:860px){
+  .hero{grid-template-columns:1fr;gap:26px;padding-top:36px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .grid2,.grid3,.vs,.step-card,.safety{grid-template-columns:1fr}
+  section{padding:44px 0}
+  .part{grid-template-columns:auto 1fr;grid-template-rows:auto auto}
+  .pprice{grid-column:2;text-align:right}
+}
+</style>
+</head>
+<body>
+<div class="snow" id="snow"></div>
+<div class="glow a"></div><div class="glow b"></div>
+
+<nav>
+  <div class="wrap">
+    <span class="logo">⛷️ <b>סקי־ארג DIY</b></span>
+    <a class="nl" href="#why">למה לבנות</a>
+    <a class="nl" href="#design">העיצוב</a>
+    <a class="nl" href="#exploded">הרכבה</a>
+    <a class="nl" href="#parts">חלקים ומחירים</a>
+    <a class="nl" href="#steps">שלבי בנייה</a>
+    <a class="nl" href="#videos">סרטונים</a>
+    <a class="nl" href="#verdict">פסק דין</a>
+    <a class="nl" href="#sources">מקורות</a>
+  </div>
+</nav>
+
+<header class="hero wrap">
+  <div>
+    <span class="tag">מדריך לילי מחקר, 26.9.2026 · אמסטרדם 🇳🇱</span>
+    <h1>מכשיר סקי־ארג משלך,<br>בפחות מ־<span style="background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent">€200</span></h1>
+    <p class="lead">Concept2 SkiErg חדש עולה בהולנד <b>€1,040</b> (ועוד €270 למעמד). המדריך הזה בונה אחד שעובד באמת מ<b>מכשיר חתירה יד שנייה</b>, קצת עץ וברגים. <b>בלי ריתוך, בלי הלחמה</b> - מקדחה ומברג בלבד.</p>
+    <div class="stats">
+      <div class="stat"><div class="v">€115+</div><div class="l">עלות משוערת</div></div>
+      <div class="stat"><div class="v">2-3</div><div class="l">שעות עבודה</div></div>
+      <div class="stat"><div class="v">2/5</div><div class="l">רמת קושי</div></div>
+      <div class="stat"><div class="v">0</div><div class="l">ריתוך / הלחמה</div></div>
+    </div>
+    <div class="cta">
+      <a class="btn p" href="#parts">לרשימת החלקים ←</a>
+      <a class="btn s" href="#steps">ישר לבנייה</a>
+    </div>
+  </div>
+  <div class="stage rv">
+    <span class="cap">המכונה שתבנה · הדמיה חיה</span>
+    <svg viewBox="0 0 300 420" width="100%" style="max-width:340px;display:block;margin:0 auto">
+      <!-- spine -->
+      <rect x="132" y="18" width="36" height="330" rx="6" fill="#22335c" stroke="#3b5288" stroke-width="2"/>
+      <rect x="140" y="26" width="20" height="314" rx="4" fill="#182747"/>
+      <!-- base feet -->
+      <path d="M150 348 L70 400 L230 400 Z" fill="#22335c" stroke="#3b5288" stroke-width="2"/>
+      <rect x="60" y="396" width="180" height="12" rx="5" fill="#22335c" stroke="#3b5288" stroke-width="2"/>
+      <!-- rower housing -->
+      <g>
+        <rect x="108" y="30" width="84" height="96" rx="16" fill="#2b3f6e" stroke="#4a67a8" stroke-width="2"/>
+        <g class="wheel">
+          <circle cx="150" cy="78" r="30" fill="#0e1830" stroke="#22d3ee" stroke-width="3"/>
+          <path d="M150 78 L150 52 M150 78 L172 90 M150 78 L128 90" stroke="#22d3ee" stroke-width="3" stroke-linecap="round"/>
+        </g>
+        <rect x="118" y="112" width="64" height="8" rx="4" fill="#4a67a8"/>
+      </g>
+      <!-- carabiner -->
+      <circle cx="150" cy="146" r="9" fill="none" stroke="#fbbf24" stroke-width="4"/>
+      <!-- ropes -->
+      <path class="rope-l" d="M150 155 C 120 190, 105 230, 100 262" fill="none" stroke="#4ade80" stroke-width="3.5" stroke-linecap="round"/>
+      <path class="rope-l" d="M150 155 C 180 190, 195 230, 200 262" fill="none" stroke="#4ade80" stroke-width="3.5" stroke-linecap="round"/>
+      <!-- handles -->
+      <g class="handles">
+        <rect x="88" y="258" width="24" height="52" rx="10" fill="#818cf8" stroke="#aab4ff" stroke-width="2"/>
+      </g>
+      <g class="handles two">
+        <rect x="188" y="258" width="24" height="52" rx="10" fill="#818cf8" stroke="#aab4ff" stroke-width="2"/>
+      </g>
+      <!-- bolts -->
+      <circle cx="150" cy="180" r="4" fill="#94a8d8"/><circle cx="150" cy="240" r="4" fill="#94a8d8"/><circle cx="150" cy="300" r="4" fill="#94a8d8"/>
+    </svg>
+  </div>
+</header>
+
+<main class="wrap">
+<!-- WHY -->
+<section id="why">
+  <span class="kicker">01 · למה לבנות</span>
+  <h2>אותה אימון, עשירית מהמחיר</h2>
+  <p class="sub">הסקי־ארג הוא אחד מכשירי האירובי הטובים שיש: כל הגוף, בלי פגיעה במפרקים. הבעיה היחידה היא המחיר. הנה ההשוואה המלאה, עם מחירים אמיתיים שנבדקו היום.</p>
+  <div class="vs">
+    <div class="card rv">
+      <h3>🏷️ לקנות חדש <span class="verdict-chip vc-n">€1,310</span></h3>
+      <ul>
+        <li>Concept2 SkiErg עם מחשב PM5: <b>€1,040</b> באתר concept2.nl ההולנדי</li>
+        <li>מעמד רצפה (חובה בלי קיר פנוי): עוד <b>€270</b></li>
+        <li>חיקויים סיניים זולים: €300+ ואיכות מפוקפקת</li>
+        <li>יד שנייה בהולנד: נדיר מאוד למצוא מתחת ל־€600</li>
+      </ul>
+      <p style="margin-top:14px"><span class="price-big lose">€1,310</span></p>
+    </div>
+    <div class="card rv" style="border-color:rgba(74,222,128,.35)">
+      <h3>🛠️ לבנות לבד <span class="verdict-chip vc-y">€100-170</span></h3>
+      <ul>
+        <li>מכשיר חתירה יד שנייה מ־Marktplaats: <b>€20-85</b> (דוגמאות חיות למטה)</li>
+        <li>עץ, ברגים, חבל, ידיות ואביזרים מ־GAMMA ו־bol.com: <b>כ־€65</b></li>
+        <li>אותו עיקרון פיזיקלי: גלגל תנופה + התנגדות אוויר</li>
+        <li>הבנייה הפיכה לחלוטין - אפשר להחזיר את הרוואר למצבו תמיד</li>
+      </ul>
+      <p style="margin-top:14px"><span class="price-big win">≈ €115</span></p>
+    </div>
+  </div>
+  <div class="grid3" style="margin-top:18px">
+    <div class="card rv"><span class="ico">💪</span><h3>אותה תנועה</h3><p>משיכה כפולה (double pole) מלמעלה למטה, זרועות+ליבה+רגליים - בדיוק כמו בסקי־ארג אמיתי. שתי ידיות עצמאיות דרך קרביינר מרכזי.</p></div>
+    <div class="card rv"><span class="ico">🌬️</span><h3>אותה התנגדות</h3><p>רוואר עם גלגל תנופה אווירי נותן את אותו חוק: ככל שמושכים חזק יותר, ההתנגדות גדלה. אין צורך בכפתורים.</p></div>
+    <div class="card rv"><span class="ico">🧰</span><h3>כלים ביתיים</h3><p>מקדחה, מברג, מסור (חיתוך אחד או שניים) ומפתח ברגים. אין ריתוך, אין הלחמה, אין הדפסת תלת־ממד חובה.</p></div>
+  </div>
+</section>
+
+<!-- DESIGN -->
+<section id="design">
+  <span class="kicker">02 · העיצוב שנבחר</span>
+  <h2>רוואר הפוך על קורת עץ - הדרך המוכחת</h2>
+  <p class="sub">בדקתי את שלושת המסלולים שהקהילה בונה בפועל. אחד מהם מנצח בגדול לבנאי ביתי עם כלים בסיסיים.</p>
+  <div class="tabs rv">
+    <button class="tab on" data-tab="t1">🏆 רוואר הפוך (נבחר)</button>
+    <button class="tab" data-tab="t2">גלגל אופניים + שרשרת</button>
+    <button class="tab" data-tab="t3">חבל + משקולות</button>
+  </div>
+  <div id="t1" class="tabpanel on">
+    <div class="grid2">
+      <div class="card">
+        <h3>איך זה עובד <span class="verdict-chip vc-y">מומלץ</span></h3>
+        <p>לוקחים מכשיר חתירה יד שנייה, מסירים את המסילה והמושב (כמה ברגים), ומצמידים את גוף המכונה - עם גלגל התנופה למעלה - לקורת עץ אנכית. הרצועה של הרוואר יורדת למטה, מחוברת לקרביינר גדול, ודרכו עובר חבל שמחולק לשתי ידיות. מושכים למטה → גלגל התנופה מסתובב. משחררים → הבנג'י הפנימי של הרוואר מחזיר את הידיות למעלה.</p>
+        <p style="margin-top:10px">זו בדיוק ההמרה שמתועדת פעם אחר פעם ב־r/concept2, בפורום הרשמי של Concept2 ובבלוגים של בוני חדרי כושר ביתיים - כולל אנשים שתלו Concept2 שלם על הקיר ומתאמנים כך שנים.</p>
+      </div>
+      <div class="card">
+        <h3>למה זה מנצח</h3>
+        <ul style="list-style:none;color:var(--txt2);font-size:.92rem">
+          <li style="padding:6px 0">✅ הגלגל והבנג'י כבר קיימים - אפס הנדסת מכנים</li>
+          <li style="padding:6px 0">✅ רק קדיחה והברגה, ההמרה הפיכה במלואה</li>
+          <li style="padding:6px 0">✅ שתי ידיות עצמאיות (החבל מחליק בקרביינר)</li>
+          <li style="padding:6px 0">✅ עובד גם עם רוואר מגנטי זול, לא חייבים Concept2</li>
+          <li style="padding:6px 0">✅ המחשב של הרוואר ממשיך לספור חזרות</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="t2" class="tabpanel">
+    <div class="card">
+      <h3>גלגל אופניים אחורי + שרשרת <span class="verdict-chip vc-n">נדחה: מורכב מדי</span></h3>
+      <p>העיצוב ה"קלאסי" של סקי־ארג עצמאי: גלגל אופניים מונע על ידי שרשרת, עם מנגנון איסוף חבל מתוחכם (freewheel + קפיץ החזרה שצריך לבנות). נפוץ אצל קהילת הסקי הנורדי הוותיקה, אבל דורש חיתוך והתאמת מתכת, מיסבים, מתח שרשרת מדויק ולא מעט ניסוי וטעייה. זה כבר פרויקט מחרטה, לא "ערב אחד עם מקדחה". מי שיש לו סדנה מצוידת - ימצא שרטוטים בקישורים שבסוף.</p>
+    </div>
+  </div>
+  <div id="t3" class="tabpanel">
+    <div class="card">
+      <h3>חבל דרך גלגלת + משקולות <span class="verdict-chip vc-n">נדחה: לא מרגיש כמו סקי</span></h3>
+      <p>הפיתרון הזול ביותר: חבל מהידיות דרך גלגלת בתקרה ומטה אל מחסנית משקולות. עולה שקלים ועובד - אבל ההתנגדות קבועה ולינארית, בלי עקומת ההאצה של גלגל תנופה. זה מרגיש כמו מכונת כוח בחדר כושר, לא כמו סקי־ארג, וקצב הדופק האימוני לא דומה. שווה הזכרון רק אם אין שום רוואר זמין.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPLODED -->
+<section id="exploded">
+  <span class="kicker">03 · האנטומיה של המכונה</span>
+  <h2>שישה חלקים, אפס קסם</h2>
+  <p class="sub">לחצו על המתג כדי לפרק ולהרכיב את המכונה. כל חלק ממוספר - המספרים תואמים את רשימת הקניות.</p>
+  <div class="exploded-wrap rv">
+    <div class="exploded-ctl">
+      <label class="switch">
+        <button class="btn p" id="explodeBtn" style="padding:10px 22px;font-size:.88rem">🧩 פירוק</button>
+      </label>
+      <span style="color:var(--txt3);font-size:.85rem" id="explodeLabel">מצב: מורכב ומוכן לאימון</span>
+    </div>
+    <svg class="exploded-svg" viewBox="0 0 640 430" width="100%" style="max-width:640px;display:block;margin:0 auto">
+      <!-- 1 spine -->
+      <g class="part" data-ex="0,-90">
+        <rect x="292" y="30" width="56" height="320" rx="8" fill="#22335c" stroke="#4a67a8" stroke-width="2"/>
+        <text x="360" y="50" fill="#22d3ee" font-size="15" font-weight="700">1 קורת העץ</text>
+      </g>
+      <!-- 2 base -->
+      <g class="part" data-ex="0,70">
+        <path d="M320 350 L220 405 L420 405 Z" fill="#22335c" stroke="#4a67a8" stroke-width="2"/>
+        <rect x="210" y="401" width="220" height="13" rx="6" fill="#22335c" stroke="#4a67a8" stroke-width="2"/>
+        <text x="440" y="420" fill="#22d3ee" font-size="15" font-weight="700">2 מעמד המשולש</text>
+      </g>
+      <!-- 3 rower -->
+      <g class="part" data-ex="-120,0">
+        <rect x="258" y="42" width="124" height="130" rx="20" fill="#2b3f6e" stroke="#5f80c9" stroke-width="2"/>
+        <circle cx="320" cy="107" r="42" fill="#0e1830" stroke="#22d3ee" stroke-width="3"/>
+        <path d="M320 107 L320 73 M320 107 L350 125 M320 107 L290 125" stroke="#22d3ee" stroke-width="3" stroke-linecap="round"/>
+        <text x="200" y="70" fill="#22d3ee" font-size="15" font-weight="700">3 גוף הרוואר</text>
+      </g>
+      <!-- 4 bolts -->
+      <g class="part" data-ex="120,0">
+        <g stroke="#fbbf24" stroke-width="5" stroke-linecap="round">
+          <line x1="296" y1="196" x2="344" y2="196"/><line x1="296" y1="258" x2="344" y2="258"/><line x1="296" y1="318" x2="344" y2="318"/>
+        </g>
+        <text x="370" y="205" fill="#22d3ee" font-size="15" font-weight="700">4 שלושה ברגי סנדוויץ'</text>
+      </g>
+      <!-- 5 carabiner+rope -->
+      <g class="part" data-ex="-70,60">
+        <circle cx="320" cy="196" r="12" fill="none" stroke="#fbbf24" stroke-width="5"/>
+        <path d="M320 208 C 285 250, 265 300, 258 340" fill="none" stroke="#4ade80" stroke-width="4" stroke-linecap="round"/>
+        <path d="M320 208 C 355 250, 375 300, 382 340" fill="none" stroke="#4ade80" stroke-width="4" stroke-linecap="round"/>
+        <text x="180" y="240" fill="#22d3ee" font-size="15" font-weight="700">5 קרביינר + חבל</text>
+      </g>
+      <!-- 6 handles -->
+      <g class="part" data-ex="70,60">
+        <rect x="244" y="336" width="28" height="62" rx="12" fill="#818cf8" stroke="#aab4ff" stroke-width="2"/>
+        <rect x="368" y="336" width="28" height="62" rx="12" fill="#818cf8" stroke="#aab4ff" stroke-width="2"/>
+        <text x="420" y="375" fill="#22d3ee" font-size="15" font-weight="700">6 שתי ידיות רצועה</text>
+      </g>
+    </svg>
+  </div>
+</section>
+<!-- PARTS -->
+<section id="parts">
+  <span class="kicker">04 · רשימת קניות מלאה</span>
+  <h2>כל חלק, עם לינק אמיתי ומחיר שנבדק</h2>
+  <p class="sub">כל המחירים נצפו באתרים ההולנדיים ב־26.9.2026. סמנו V על מה שכבר יש לכם (או קניתם) והסכום יתעדכן. מודעות Marktplaats מתחלפות - הלינקים למודעות הם דוגמאות חיות מהלילה שבו נכתב המדריך.</p>
+  <div class="parts-top">
+    <div>
+      <span class="note-chip">💶 הכל מתחת ל־€200, עם מרווח</span>
+      <span class="note-chip">🔁 ההמרה הפיכה - הרוואר נשאר שלם</span>
+    </div>
+    <div class="totalbox">
+      <div class="t" id="totalNow">€0</div>
+      <div class="l">סה"כ לפי הסימון שלך · <span id="totalMax"></span> אם קונים הכל</div>
+    </div>
+  </div>
+  <div id="partsList">
+
+    <div class="part rv" data-price="50">
+      <div class="pcheck">✓</div>
+      <div>
+        <div class="pname">1 · מכשיר חתירה יד שנייה <span class="note-chip">הלב של המכונה</span></div>
+        <div class="pdesc">מחפשים ב־Marktplaats: "roeitrainer" עם <b>vliegwiel / luchtweerstand</b> (גלגל תנופה אווירי). גם מגנטי (magnetische) עובד. <b>להימנע</b>: רווארים הידראוליים עם בוכנות בצדדים (סוג "row-n-ride"). לבדוק שהרצועה נמשכת וחוזרת חלק. €50 הוא ממוצע ריאלי; מי שממקד חיפוש מוצא ב־€20-30.</div>
+        <div class="plinks">
+          <a class="plink" href="https://www.marktplaats.nl/l/sport-en-fitness/fitnessapparatuur/q/roeitrainer/" target="_blank" rel="noopener">🔎 חיפוש חי ב־Marktplaats</a>
+          <a class="plink alt" href="https://www.marktplaats.nl/v/sport-en-fitness/fitnessapparatuur/m2445872317-roeimachine-zo-goed-als-nieuw" target="_blank" rel="noopener">€20 · רואימachine (נצפה 26.9)</a>
+          <a class="plink alt" href="https://www.marktplaats.nl/v/sport-en-fitness/fitnessapparatuur/m2446556141-tunturi-roeitrainer-cardio-fit-r20" target="_blank" rel="noopener">€50 · Tunturi R20 (נצפה 26.9)</a>
+          <a class="plink alt" href="https://www.marktplaats.nl/v/sport-en-fitness/fitnessapparatuur/m2446488223-virtufit-row-450-roeitrainer-roeiapparaat-limited-edition" target="_blank" rel="noopener">€70 · VirtuFit Row 450 (נצפה 26.9)</a>
+          <a class="plink alt" href="https://www.marktplaats.nl/v/sport-en-fitness/fitnessapparatuur/m2446230048-roeimachine" target="_blank" rel="noopener">€85 · דגם עם vliegwiel (נצפה 26.9)</a>
+        </div>
+      </div>
+      <div class="pprice">€20-85<small>יד שנייה</small></div>
+    </div>
+
+    <div class="part rv" data-price="12.99">
+      <div class="pcheck">✓</div>
+      <div>
+        <div class="pname">2 · זוג ידיות רצועה + 2 קרביינרים</div>
+        <div class="pdesc">ידיות של מכונת כבלים עם רצועת ניילון וטבעת D - בדיוק מה שהסקי־ארג צריך, ומגיע עם שני קרביינרים קטנים לקצוות החבל. MJ Sports דרך bol.com, נבדק בדף המוצר: €12,99.</div>
+        <div class="plinks">
+          <a class="plink" href="https://www.bol.com/nl/nl/p/mj-sports-premium-strap-handles-inclusief-2-karabijnhaken-handvatten-set-voor-krachtstations-en-weerstandsbanden-cable-crossover-fitness-handgrepen-met-d-ring-zwart/9300000023451869/" target="_blank" rel="noopener">🛒 bol.com · MJ Sports (€12,99)</a>
+          <a class="plink alt" href="https://gorillasports.nl/products/kabelhandgrepen-set-van-2" target="_blank" rel="noopener">חלופה: Gorilla Sports (€29,99)</a>
+        </div>
+      </div>
+      <div class="pprice">€12,99<small>bol.com</small></div>
+    </div>
+
+    <div class="part rv" data-price="4.79">
+      <div class="pcheck">✓</div>
+      <div>
+        <div class="pname">3 · קרביינר גדול 8×80 מ"מ - נקודת החלוקה</div>
+        <div class="pdesc">הקרביינר הזה מתחבר לקצה הרצועה של הרוואר, והחבל של הידיות מחליק דרכו. זה מה שנותן לשתי הידיים לעבוד בעצמאות. מומלץ לקחת שניים (רזרבה). GAMMA, מחיר נבדק.</div>
+        <div class="plinks">
+          <a class="plink" href="https://www.gamma.nl/assortiment/karabijnhaak-8x80mm/p/B338564" target="_blank" rel="noopener">🛒 GAMMA · קרביינר 8x80 (€4,79)</a>
+          <a class="plink alt" href="https://www.gamma.nl/assortiment/karabijnhaak-8x80mm-met-schroef-borging/p/B432735" target="_blank" rel="noopener">שידרוג: עם נעילת הברגה (€7,59)</a>
+        </div>
+      </div>
+      <div class="pprice">€4,79<small>GAMMA</small></div>
+    </div>
+
+    <div class="part rv" data-price="8.10">
+      <div class="pcheck">✓</div>
+      <div>
+        <div class="pname">4 · חבל פוליפרופילן 8 מ"מ, 10 מטר</div>
+        <div class="pdesc">צריך בפועל רק כ־3 מטר (אורך כפול מגובה הקרביינר עד הידיות + שוליים לקשרים), אבל מוכרים גליל שלם - יישאר לכם חבל לשנים. PP מסתובב חלק בקרביינר ולא נרקב. GAMMA.</div>
+        <div class="plinks">
+          <a class="plink" href="https://www.gamma.nl/assortiment/touw-polypropyleen-oranje-8-mm-10-meter/p/B380586" target="_blank" rel="noopener">🛒 GAMMA · חבל 8mm/10m (≈€8)</a>
+        </div>
+      </div>
+      <div class="pprice">≈€8<small>GAMMA</small></div>
+    </div>
+
+    <div class="part rv" data-price="24.98">
+      <div class="pcheck">✓</div>
+      <div>
+        <div class="pname">5 · עץ: שתי קורות vuren ‏18×94×270 ס"מ</div>
+        <div class="pdesc">אחת היא השלדה האנכית (ה"עמודה" של המכונה), השנייה נחתכת לרגלי המשולש של המעמד. עץ vuren מסיבי, זול ומספיק חזק לעומסי משיכה. GAMMA, מחיר ליחידה €12,49.</div>
+        <div class="plinks">
+          <a class="plink" href="https://www.gamma.nl/assortiment/bouwhout-vuren-geschaafd-18x94-mm-270-cm/p/B270622" target="_blank" rel="noopener">🛒 GAMMA · ‏18×94×270 (€12,49 ליח')</a>
+          <a class="plink alt" href="#design">גרסת קיר: מחליפים את המעמד בפלאגים - ראו למטה</a>
+        </div>
+      </div>
+      <div class="pprice">€24,98<small>2 יח' · GAMMA</small></div>
+    </div>
+
+    <div class="part rv" data-price="6.49">
+      <div class="pcheck">✓</div>
+      <div>
+        <div class="pname">6 · קורת vuren ‏18×44×270 ס"מ - תומכות ורגל רוחב</div>
+        <div class="pdesc">נחתכת ל: שתי תומכות אלכסוניות למעמד, ושתי נלות רוחב ש"סוגרות סנדוויץ'" על גוף הרוואר מול השלדה. GAMMA.</div>
+        <div class="plinks">
+          <a class="plink" href="https://www.gamma.nl/assortiment/bouwhout-vuren-geschaafd-18x44-mm-270-cm/p/B270495" target="_blank" rel="noopener">🛒 GAMMA · ‏18×44×270 (€6,49)</a>
+        </div>
+      </div>
+      <div class="pprice">€6,49<small>GAMMA</small></div>
+    </div>
+
+    <div class="part rv" data-price="16.19">
+      <div class="pcheck">✓</div>
+      <div>
+        <div class="pname">7 · ברגי סנדוויץ' M8×100 מ"מ, חבילת 15</div>
+        <div class="pdesc">slotbout (ברגי ראש־עגול עם ארבע) - הבורג הנכון לחיבור עץ־מתכת־עץ. שלושה מהם סוגרים את הרוואר על השלדה, השאר בונים את המעמד. כולל אומים. GAMMA.</div>
+        <div class="plinks">
+          <a class="plink" href="https://www.gamma.nl/assortiment/gamma-slotbout-m8-x-100-mm-verzinkt-15-stuks/p/B458216" target="_blank" rel="noopener">🛒 GAMMA · slotbout M8x100 ‏x15 (€16,19)</a>
+        </div>
+      </div>
+      <div class="pprice">€16,19<small>GAMMA</small></div>
+    </div>
+
+    <div class="part rv" data-price="0" data-optional="1">
+      <div class="pcheck">✓</div>
+      <div>
+        <div class="pname">8 · (אופציונלי) גלגלת קטנה במקום קרביינר</div>
+        <div class="pdesc">אם רוצים החזרה חלקה עוד יותר ושחיקה מינימלית של החבל - מחליפים את קרביינר החלוקה בגלגלת (katrol) קטנה. ב־GAMMA יש החל מ־€5,79. לא חובה: הקהילה מתאמנת שנים עם קרביינר פשוט.</div>
+        <div class="plinks">
+          <a class="plink" href="https://www.gamma.nl/assortiment/l/ijzerwaren/katrollen" target="_blank" rel="noopener">🛒 GAMMA · גלגלות החל מ־€5,79</a>
+        </div>
+      </div>
+      <div class="pprice">+€5,79<small>שידרוג</small></div>
+    </div>
+
+    <div class="part rv" data-price="0" data-optional="1">
+      <div class="pcheck">✓</div>
+      <div>
+        <div class="pname">9 · (וריאנט) תלייה על קיר במקום מעמד</div>
+        <div class="pdesc">יש קיר בטון/לבנים פנוי? חוסכים את כל עץ המעמד: השלדה מתברגת לקיר עם 4 פלאגי slagplug ‏10×160 (€2,49 ליח'). בקיר גבס - רק לתוך קורות, לא לגבס עצמו. דירה שכורה? 4 חורים שמתמלאים בקלות, או מעמד הרצפה שלמעלה.</div>
+        <div class="plinks">
+          <a class="plink" href="https://www.gamma.nl/assortiment/slagplug-10x160mm-7x165mm-tx-1st/p/B106304" target="_blank" rel="noopener">🛒 GAMMA · slagplug 10×160 (€2,49)</a>
+          <a class="plink alt" href="https://www.gamma.nl/assortiment/gamma-constuct-10x100mm-hdb-tx-7x105mm-4st/p/B163176" target="_blank" rel="noopener">חבילת 4 Construct 10×100 (€5,69)</a>
+        </div>
+      </div>
+      <div class="pprice">−€20<small>חוסך את המעמד</small></div>
+    </div>
+
+  </div>
+</section>
+<!-- STEPS -->
+<section id="steps">
+  <span class="kicker">05 · בנייה צעד אחר צעד</span>
+  <h2>מהקופסה לאימון ראשון: 8 שלבים</h2>
+  <p class="sub">סה"כ 2-3 שעות בקצב רגוע. כלים: מקדחה עם ביטים לעץ 8 מ"מ, מברג/מפתח 13 מ"מ, מסור יד או מסור חשמלי, מטר ועיפרון.</p>
+  <div class="steps-nav" id="stepsNav"></div>
+  <div class="step-card" id="stepCard">
+    <div>
+      <h3 id="stTitle"></h3>
+      <div class="step-meta" id="stMeta"></div>
+      <ol id="stList"></ol>
+      <div class="warnbox" id="stWarn" style="display:none"></div>
+    </div>
+    <div class="diagram" id="stDiagram"></div>
+  </div>
+  <div class="step-ctl">
+    <button class="btn s" id="prevStep">→ שלב קודם</button>
+    <button class="btn p" id="nextStep">השלב הבא ←</button>
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section id="videos">
+  <span class="kicker">06 · סרטונים ששווה לראות</span>
+  <h2>טכניקה נכונה + איך הרצועה עובדת</h2>
+  <div class="grid2" style="margin-top:24px">
+    <div class="rv">
+      <div class="vid"><iframe loading="lazy" src="https://www.youtube.com/embed/B0lIgT5PHc8" title="SkiErg Technique | Concept2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <p class="vidcap"><b>טכניקת הסקי־ארג הרשמית של Concept2.</b> אותה טכניקה בדיוק עובדת על הבנייה שלכם: גבוה, משיכה דרך הליבה, סיומת לצד הירכיים.</p>
+    </div>
+    <div class="rv">
+      <div class="vid"><iframe loading="lazy" src="https://www.youtube.com/embed/mfItEV68TxY" title="How to Replace Handle Cords | Concept2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <p class="vidcap"><b>איך נראית מערכת חבל־ידיות אמיתית מבפנים</b> (Concept2 רשמי). מסביר למה הידיות שלנו עובדות כמו שצריך.</p>
+    </div>
+  </div>
+  <p class="vidcap" style="margin-top:16px">רוצים לראות עוד המרות אמיתיות של אחרים? <a class="plink" href="https://www.youtube.com/results?search_query=convert+rower+to+skierg+diy" target="_blank" rel="noopener">▶ חיפוש YouTube: convert rower to skierg DIY</a> ועוד עיצובים ותמונות שלב־אחר־שלב בקישורי המקורות למטה.</p>
+</section>
+
+<!-- VERDICT -->
+<section id="verdict">
+  <span class="kicker">07 · פסק דין כנה</span>
+  <h2>מה מקבלים - ומה לא</h2>
+  <p class="sub">בלי ניפוח: זו לא מכונת €1,040. הנה בדיוק איפה היא שווה ואיפה היא מתפשרת.</p>
+  <table class="vtable rv">
+    <tr><th>פרמטר</th><th>Concept2 SkiErg (€1,040)</th><th>הבנייה שלנו (≈€115)</th></tr>
+    <tr><td>תחושת משיכה</td><td>גלגל אוויר מדויק עם דמפר 1-10</td><td>זהה בעקרון עם רוואר אווירי; רוואר מגנטי מרגיש מעט שטוח יותר במשיכות מהירות</td></tr>
+    <tr><td>מדדים</td><td>PM5: וואט, פייס, קלוריות, אפליקציות</td><td>המחשב של הרוואר (חזרות/זמן), או שעון ספורט לדופק. אין וואט מדויק</td></tr>
+    <tr><td>עצמאות ידיים</td><td>שני חבלים נפרדים לגמרי</td><td>חבל אחד דרך קרביינר - עצמאות כמעט מלאה, עם אינטראקציה קלה בין הידיים</td></tr>
+    <tr><td>טווח תנועה</td><td>משיכה מלאה עד מאחורי הירכיים</td><td>כמעט מלא; תלוי בגובה התקנה ובאורך החבל</td></tr>
+    <tr><td>רעש</td><td>רעש אוויר מתון</td><td>זהה לרוואר המקורי + שקית קלה של החבל בקרביינר</td></tr>
+    <tr><td>עמידות</td><td>תעשייתית, עשרות שנים</td><td>תלויה ברוואר היד שנייה; בדיקת ברגים שבועית</td></tr>
+  </table>
+  <div class="safety">
+    <div class="card rv"><span class="ico">⚓</span><h3>עיגון הוא לא אופציה</h3><p>במשיכה חזקה מופעלים על העמוד עשרות ק"ג. מעמד הרצפה חייב משולש רחב (70+ ס"מ), ובקיר - רק בטון/לבנים/קורות עם slagplug ‏10 מ"מ, אף פעם לא גבס חלול.</p></div>
+    <div class="card rv"><span class="ico">🔩</span><h3>בדיקה שבועית</h3><p>דקה אחת: להידק את שלושת ברגי הסנדוויץ', לבדוק שהחבל לא נשחט בקרביינר, ושהקרביינר סגור. אם משהו זז - מושכים, מבריגים, ממשיכים.</p></div>
+    <div class="card rv"><span class="ico">🧒</span><h3>ילדים וכלבים</h3><p>ידיות חוזרות למעלה בקפיץ כשמשחררים - לא משחק. מלמדים את הבית: משחררים רק כשהידיות ביד, רחוקים מפרצופים.</p></div>
+  </div>
+</section>
+
+<!-- SOURCES -->
+<section id="sources">
+  <span class="kicker">08 · מקורות המחקר</span>
+  <h2>על מה זה מבוסס</h2>
+  <div style="margin-top:18px">
+    <div class="src"><span class="n">1</span><div><a href="https://atkosite.wordpress.com/2021/10/29/diy-attempt-at-a-skierg/" target="_blank" rel="noopener">DIY attempt at a SkiErg - Run Like Duck (2021)</a><span>הבנייה המתועדת הטובה ביותר: רוואר Marcy ב־£15, שרשראות לידיות, ותיבת האזהרה על הרצועה הנשאבת פנימה. העלות שלו: £19.</span></div></div>
+    <div class="src"><span class="n">2</span><div><a href="https://www.reddit.com/r/concept2/comments/14zl8ug/thoughts_on_pulley_system_to_easily_convert_c2/" target="_blank" rel="noopener">r/concept2 - Pulley system to convert C2 rower into ski-erg</a><span>דיון הקהילה: למה גלגלות מפצלות מורידות כוח, ואיש המקצוע שהבריג Concept2 Model B זקוף לקיר ומתאמן כך כרגיל.</span></div></div>
+    <div class="src"><span class="n">3</span><div><a href="https://www.reddit.com/r/Rowing/comments/jzmt2l/c2_erg_as_a_skierg/" target="_blank" rel="noopener">r/Rowing - C2 Erg as a "Skierg"</a><span>ההבדלים הטכניים בין רוואר לסקי־ארג (קוטר גלגל שיניים, דמפר) - הבסיס לפסק הדין הכנה שלנו.</span></div></div>
+    <div class="src"><span class="n">4</span><div><a href="https://c2forum.com/viewtopic.php?t=201098" target="_blank" rel="noopener">Concept2 Forum - Mounting rower to wall as ski erg</a><span>הפורום הרשמי: "אנשים עשו את זה בימים ההם - וזה מה שהשראה לסקי־ארג".</span></div></div>
+    <div class="src"><span class="n">5</span><div><a href="https://www.thingiverse.com/thing:4571793" target="_blank" rel="noopener">Thingiverse - Ski Erg Handles by DocDrill</a><span>ידיות מודפסות לרוואר תלוי הפוך על הקיר - ההוכחה שהקונספט עובד גם בלי מסגרת ייעודית.</span></div></div>
+    <div class="src"><span class="n">6</span><div><a href="https://www.concept2.nl/nl/skierg/concept2-skierg" target="_blank" rel="noopener">concept2.nl - מחירון SkiErg רשמי</a><span>‏€1,040 למכונה + ‏€270 למעמד, כולל מע"מ ומשלוח. הבסיס להשוואת המחיר.</span></div></div>
+    <div class="src"><span class="n">7</span><div><a href="https://fasterskier.com/2009/06/concept2-skierg-review/" target="_blank" rel="noopener">FasterSkier - Concept2 SkiErg Review</a><span>סקירה היסטורית: למה "רוואר על הקיר עם ידית מאולתרת" עבד אך היה פחות אופטימלי - ומה שיפרנו בדיוק במדריך הזה.</span></div></div>
+    <div class="src"><span class="n">8</span><div><a href="https://jacobselander.com/fun/kayakerg/" target="_blank" rel="noopener">Jacob Selander - Kayak Ergometer מ־NordicTrack</a><span>מכונת סקי NordicTrack ישנה הופכת לארגומטר חתירה - גישת עץ+גלגלות נוספת, למי שרוצה להשתעשע הלאה.</span></div></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    נבנה בלילה אחד של מחקר · 26 בספטמבר 2026 · כל המחירים נצפו באתרי הספקים בהולנד באותו הלילה ועשויים להשתנות.<br>
+    ההמרה אינה מוצר של Concept2; SkiErg הוא סימן מסחרי של Concept2, Inc. בונים באחריות, מחזקים ברגים, ומתאמנים בתאבון ⛷️
+  </div>
+</footer>
+<script>
+/* ---------- snow ---------- */
+(function(){const s=document.getElementById('snow');for(let i=0;i<34;i++){const d=document.createElement('i');const sz=2+Math.random()*4;d.style.width=d.style.height=sz+'px';d.style.left=Math.random()*100+'vw';d.style.animationDuration=(7+Math.random()*9)+'s';d.style.animationDelay=(-Math.random()*10)+'s';d.style.opacity=.15+Math.random()*.4;s.appendChild(d)}})();
+
+/* ---------- reveal on scroll + nav spy ---------- */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+const navLinks=[...document.querySelectorAll('nav a.nl')];
+const spy=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){navLinks.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id))}}),{rootMargin:'-40% 0px -55% 0px'});
+document.querySelectorAll('section[id]').forEach(s=>spy.observe(s));
+
+/* ---------- tabs ---------- */
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
+  document.querySelectorAll('.tabpanel').forEach(x=>x.classList.remove('on'));
+  t.classList.add('on');document.getElementById(t.dataset.tab).classList.add('on');
+}));
+
+/* ---------- exploded toggle ---------- */
+const parts=[...document.querySelectorAll('.exploded-svg .part')];
+let exploded=false;
+document.getElementById('explodeBtn').addEventListener('click',()=>{
+  exploded=!exploded;
+  parts.forEach(p=>{const [dx,dy]=p.dataset.ex.split(',').map(Number);p.style.transform=exploded?`translate(${dx}px,${dy}px)`:'translate(0,0)'});
+  document.getElementById('explodeBtn').textContent=exploded?'🔧 הרכבה':'🧩 פירוק';
+  document.getElementById('explodeLabel').textContent=exploded?'מצב: מפורק - שימו לב למספרים ליד כל חלק':'מצב: מורכב ומוכן לאימון';
+});
+
+/* ---------- parts checklist + total ---------- */
+const fmt=n=>'€'+(Math.round(n*100)/100).toFixed(2).replace('.',',').replace(',00','');
+const partEls=[...document.querySelectorAll('.part')];
+const saved=JSON.parse(localStorage.getItem('skierg-parts')||'{}');
+function calcTotal(){
+  let cur=0,max=0;
+  partEls.forEach(p=>{const pr=+p.dataset.price;max+=pr;if(p.classList.contains('done'))cur+=pr});
+  document.getElementById('totalNow').textContent=fmt(cur);
+  document.getElementById('totalMax').textContent=fmt(max);
+}
+partEls.forEach((p,i)=>{
+  if(saved[i])p.classList.add('done');
+  p.addEventListener('click',e=>{
+    if(e.target.closest('a'))return;
+    p.classList.toggle('done');
+    saved[i]=p.classList.contains('done');
+    localStorage.setItem('skierg-parts',JSON.stringify(saved));
+    calcTotal();
+  });
+});
+calcTotal();
+
+/* ---------- steps ---------- */
+const STEPS=[
+{t:'קונים את הרוואר הנכון',meta:['⏱️ 30-60 דקות (קנייה)','🛠️ רמת קושי 1/5','📱 רק הטלפון'],list:[
+ 'ב־Marktplaats מחפשים <b>roeitrainer</b> ומסננים לאזור אמסטרדם. מודעות טובות נחטפות - שולחים הודעה מיד.',
+ 'בודקים בתמונות: <b>גלגל תנופה קדמי גדול עם פתחי אוויר</b> (luchtweerstand) או לפחות vliegwiel. פסוחים על הידראולי עם בוכנות צדדיות.',
+ 'שואלים את המוכר שאלה אחת: "Komt de band vanzelf terug als je hem trekt?" - הרצועה חוזרת לבד? אם כן, יש מכונה.',
+ 'אוספים ברכב או עם חבר - רוואר מתפרק לשניים ונכנס לרכב משפחתי.'],warn:null,d:'search'},
+{t:'מפרקים את המסילה והמושב',meta:['⏱️ 20 דקות','🛠️ קושי 1/5','🔩 מברג/אלן'],list:[
+ 'הופכים את הרוואר על הצד. המושב נשלף מהמסילה, והמסילה מחוברת לגוף ב־2-4 ברגים (ברוב הדגמים).',
+ 'משאירים רק את <b>גוף המכונה</b>: הבית עם גלגל התנופה, הרצועה והרגליים הקדמיות.',
+ 'שומרים את כל הברגים בשקית - אם תרצו להחזיר את הרוואר לחיים, הכל מחכה.'],warn:'⚠️ <b>האזהרה הכי חשובה במדריך:</b> כשמסירים את הידית המקורית מהרצועה, הבנג׳י שואב אותה פנימה בבת אחת. לפני שמסירים - קושרים קשר גדול או תוקעים מברג דרך הלולאה. מי ששכח, מפרק חצי מכונה כדי לדגות אותה החוצה.',d:'strip'},
+{t:'בונים את השלדה והמעמד',meta:['⏱️ 45 דקות','🛠️ קושי 2/5','🪚 מסור + מקדחה'],list:[
+ 'השלדה: קורת 18×94 באורך מלא 270 ס"מ (או קיצור ל־230 אם התקרה נמוכה - הרוואר צריך לשבת בגובה 190-210 ס"מ).',
+ 'מהקורה השנייה חותכים: <b>רגל בסיס 80 ס"מ</b> (אופקית, על הרצפה) ושתי <b>תומכות אלכסוניות 60 ס"מ</b> בחיתוך 45°.',
+ 'מחברים משולש: השלדה בזווית 90° לרגל הבסיס, תומכת מכל צד - בורג M8 בכל מפרק. מקבלים T יציב עם שתי זוויות.',
+ 'קורת 18×44 נחתכת לשתי נלות רוחב 40 ס"מ (ישמשו בסנדוויץ׳ הרוואר) ורגל רוחב אחורית למניעת נדנוד צידי.'],warn:null,d:'frame'},
+{t:'מצמידים את הרוואר לשלדה',meta:['⏱️ 30 דקות','🛠️ קושי 3/5','🔩 3 ברגי M8'],list:[
+ 'מסמנים על השלדה שלוש נקודות: מתחת לבית הרוואר, באמצעו, ומעליו (או לפי חורי המסגרת הקיימים שלו - עדיף!).',
+ 'קודחים בשלדה ובנלות הרוחב חורים של 9 מ"מ.',
+ '<b>סנדוויץ׳:</b> נלת רוחב ← גוף הרוואר ← שלדה, ובורג M8×100 דרך כולם עם אום ושתי וושרים. מבריגים חזק, בלי לשבור עץ.',
+ 'מנערים בכל הכוח. אם יש תזוזה - מוסיפים נלה נוספת או מהדקים. המכונה צריכה להרגיש כמו רהיט אחד.'],warn:'⚠️ אם למסגרת הרוואר יש חורים קיימים (רוב הדגמים) - משתמשים בהם במקום לקדוח בו. עקרון: קודחים בעץ, לא במתכת של הרוואר.',d:'mount'},
+{t:'הקרביינר והחבל - לב הסקי־ארג',meta:['⏱️ 15 דקות','🛠️ קושי 2/5','🪢 קשרים'],list:[
+ 'לקצה הרצועה של הרוואר (איפה שהייתה הידית) מחברים את <b>הקרביינר הגדול</b>.',
+ 'חותכים מהחבל כ־3 מטר, ומעבירים את <b>אמצע החבל</b> דרך הקרביינר - שני הצדדים תלויים למטה.',
+ 'שורפים את קצוות החבל בזהירות עם גפרור (PP נמס - מונע התפרקות). לא לשרוף אצבעות.',
+ 'בודקים: מושכים צד אחד - הצד השני עולה דרך הקרביינר. זו העצמאות של הידיים.'],warn:null,d:'rope'},
+{t:'מרכיבים את הידיות',meta:['⏱️ 10 דקות','🛠️ קושי 1/5','🔗 קליפסים'],list:[
+ 'כל קצה חבל נקשר בקשר חזק (בולין או קשר דייגים כפול) ונקליפס לטבעת ה־D של ידית הרצועה עם הקרביינר הקטן שבא בערכה.',
+ 'גובה ידיות במנוחה: בערך בגובה המותניים-חזה. מתקנים באורך החבל.',
+ 'בונוס לחובבים: אפשר להדפיס ידיות סקי־ארג ייעודיות מהמודל ב־Thingiverse (מקור 5) - אבל ידיות הרצועה מספיקות לגמרי.'],warn:null,d:'handles'},
+{t:'מייצבים ובודקים בטיחות',meta:['⏱️ 20 דקות','🛠️ קושי 2/5','⚓ קריטי'],list:[
+ 'מעמד רצפה: מושכים מהידיות בכל הכוח בעוד מישהו צופה - אם הבסיס מתנדנד, מרחיבים את רגל הרוחב או מוסיפים שק חול/משקולת על הרגל.',
+ 'גרסת קיר: 4 פלאגי slagplug 10×160 בבטון/לבנים בלבד. גבס חלול אסור - שם רק לתוך קורת עץ.',
+ 'צ׳ק־ליסט: שלושת ברגי הסנדוויץ׳ מודקים · הקרביינר נסגר · החבל לא נשחט · הרצועה חוזרת חלק.',
+ 'מסמנים על הרצפה את קו העמידה: 50-60 ס"מ מהמכונה.'],warn:'⚠️ בטיחות קודמת לכל: אימון ראשון מתחיל במשיכות עדינות ומחמיר בהדרגה. ילדים רק בהשגחה - הידיות קופצות למעלה כשמשחררים.',d:'safety'},
+{t:'אימון ראשון + כיול',meta:['⏱️ 10 דקות','🛠️ קושי 1/5','🎉 סיימתם!'],list:[
+ 'חימום: 20 משיכות עדינות. מרגישים את גלגל התנופה מתעורר.',
+ 'הטכניקה מהסרטון של Concept2: עומדים זקוף, מושכים דרך הליבה, מסיימים לצד הירכיים, חוזרים בשליטה.',
+ 'כבד מדי? מורידים את הדמפר/רמת ההתנגדות של הרוואר. קל מדי? מעלים. ברוואר אווירי - פשוט מושכים חזק יותר.',
+ 'המחשב של הרוואר סופר חזרות וזמן - מספיק כדי לעקוב אחרי התקדמות. רוצים וואט? זה ה־€925 שנשארו בכיס.'],warn:null,d:'done'}
+];
+const DIAG={
+search:'🔍<div style="font-size:.8rem;color:var(--txt3);margin-top:8px">Marktplaats ← roeitrainer ← vliegwiel ✓</div>',
+strip:'🪑➡️🗑️<div style="font-size:.8rem;color:var(--txt3);margin-top:8px">מסילה ומושב יוצאים · הגוף נשאר</div>',
+frame:'📐<div style="font-size:.8rem;color:var(--txt3);margin-top:8px">שלדה 270 · בסיס 80 · שתי אלכסונות 60</div>',
+mount:'🥪<div style="font-size:.8rem;color:var(--txt3);margin-top:8px">נלה ← רוואר ← שלדה · 3×M8</div>',
+rope:'🪢<div style="font-size:.8rem;color:var(--txt3);margin-top:8px">רצועה → קרביינר → חבל מתחלק</div>',
+handles:'🔗<div style="font-size:.8rem;color:var(--txt3);margin-top:8px">קשר בולין + קרביינר קטן לכל ידית</div>',
+safety:'⚓<div style="font-size:.8rem;color:var(--txt3);margin-top:8px">מנעור חזק = בדיקת יציבות</div>',
+done:'⛷️<div style="font-size:.8rem;color:var(--txt3);margin-top:8px">20 משיכות חימום · ואז סקי חופשי</div>'};
+let cur=0; const didSteps=new Set();
+const navEl=document.getElementById('stepsNav');
+STEPS.forEach((s,i)=>{const b=document.createElement('button');b.className='snav';b.textContent=i+1;b.addEventListener('click',()=>showStep(i));navEl.appendChild(b)});
+function showStep(i){
+  cur=i;didSteps.add(i);
+  const s=STEPS[i];
+  document.getElementById('stTitle').textContent='שלב '+(i+1)+' · '+s.t;
+  document.getElementById('stMeta').innerHTML=s.meta.map(m=>`<span class="chip">${m}</span>`).join('');
+  document.getElementById('stList').innerHTML=s.list.map(l=>`<li>${l}</li>`).join('');
+  const w=document.getElementById('stWarn');
+  if(s.warn){w.style.display='block';w.innerHTML=s.warn}else{w.style.display='none'}
+  document.getElementById('stDiagram').innerHTML='<div style="text-align:center;font-size:3.2rem">'+DIAG[s.d]+'</div>';
+  [...navEl.children].forEach((b,j)=>{b.classList.toggle('on',j===i);b.classList.toggle('did',didSteps.has(j)&&j!==i)});
+  document.getElementById('prevStep').style.visibility=i===0?'hidden':'visible';
+  document.getElementById('nextStep').textContent=i===STEPS.length-1?'⛷️ לאימון!':'השלב הבא ←';
+}
+document.getElementById('prevStep').addEventListener('click',()=>showStep(Math.max(0,cur-1)));
+document.getElementById('nextStep').addEventListener('click',()=>{if(cur<STEPS.length-1)showStep(cur+1);else document.getElementById('videos').scrollIntoView({behavior:'smooth'})});
+showStep(0);
+</script>
+</body>
+</html>
