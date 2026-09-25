@@ -201,7 +201,7 @@ footer{border-top:1px solid var(--line);padding:34px 0 46px;color:var(--txt3);fo
     <h1>מכשיר סקי־ארג משלך,<br>בפחות מ־<span style="background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent">€200</span></h1>
     <p class="lead">Concept2 SkiErg חדש עולה בהולנד <b>€1,040</b> (ועוד €270 למעמד). המדריך הזה בונה אחד שעובד באמת מ<b>מכשיר חתירה יד שנייה</b>, קצת עץ וברגים. <b>בלי ריתוך, בלי הלחמה</b> - מקדחה ומברג בלבד.</p>
     <div class="stats">
-      <div class="stat"><div class="v">€115+</div><div class="l">עלות משוערת</div></div>
+      <div class="stat"><div class="v">≈€124</div><div class="l">עלות משוערת</div></div>
       <div class="stat"><div class="v">2-3</div><div class="l">שעות עבודה</div></div>
       <div class="stat"><div class="v">2/5</div><div class="l">רמת קושי</div></div>
       <div class="stat"><div class="v">0</div><div class="l">ריתוך / הלחמה</div></div>
@@ -272,7 +272,7 @@ footer{border-top:1px solid var(--line);padding:34px 0 46px;color:var(--txt3);fo
         <li>אותו עיקרון פיזיקלי: גלגל תנופה + התנגדות אוויר</li>
         <li>הבנייה הפיכה לחלוטין - אפשר להחזיר את הרוואר למצבו תמיד</li>
       </ul>
-      <p style="margin-top:14px"><span class="price-big win">≈ €115</span></p>
+      <p style="margin-top:14px"><span class="price-big win">≈ €124</span></p>
     </div>
   </div>
   <div class="grid3" style="margin-top:18px">
@@ -558,7 +558,7 @@ footer{border-top:1px solid var(--line);padding:34px 0 46px;color:var(--txt3);fo
   <h2>מה מקבלים - ומה לא</h2>
   <p class="sub">בלי ניפוח: זו לא מכונת €1,040. הנה בדיוק איפה היא שווה ואיפה היא מתפשרת.</p>
   <table class="vtable rv">
-    <tr><th>פרמטר</th><th>Concept2 SkiErg (€1,040)</th><th>הבנייה שלנו (≈€115)</th></tr>
+    <tr><th>פרמטר</th><th>Concept2 SkiErg (€1,040)</th><th>הבנייה שלנו (≈€124)</th></tr>
     <tr><td>תחושת משיכה</td><td>גלגל אוויר מדויק עם דמפר 1-10</td><td>זהה בעקרון עם רוואר אווירי; רוואר מגנטי מרגיש מעט שטוח יותר במשיכות מהירות</td></tr>
     <tr><td>מדדים</td><td>PM5: וואט, פייס, קלוריות, אפליקציות</td><td>המחשב של הרוואר (חזרות/זמן), או שעון ספורט לדופק. אין וואט מדויק</td></tr>
     <tr><td>עצמאות ידיים</td><td>שני חבלים נפרדים לגמרי</td><td>חבל אחד דרך קרביינר - עצמאות כמעט מלאה, עם אינטראקציה קלה בין הידיים</td></tr>
@@ -626,7 +626,7 @@ document.getElementById('explodeBtn').addEventListener('click',()=>{
 
 /* ---------- parts checklist + total ---------- */
 const fmt=n=>'€'+(Math.round(n*100)/100).toFixed(2).replace('.',',').replace(',00','');
-const partEls=[...document.querySelectorAll('.part')];
+const partEls=[...document.querySelectorAll('#parts .part[data-price]')];
 const saved=JSON.parse(localStorage.getItem('skierg-parts')||'{}');
 function calcTotal(){
   let cur=0,max=0;
